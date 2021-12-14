@@ -42,6 +42,20 @@ template <typename... T> void write(T &&...args) {
 void solve() {
   int n;
   cin >> n;
+
+  int x, y, z, s_x = 0, s_y = 0, s_z = 0;
+
+  For(i, 0, n) {
+    read(x, y, z);
+    s_x += x;
+    s_y += y;
+    s_z += z;
+  }
+
+  if (s_x == 0 && s_y == 0 && s_z == 0)
+    write("YES");
+  else
+    write("NO");
 }
 
 int main() {
@@ -49,9 +63,7 @@ int main() {
   cin.tie(0);
   cout.tie(0);
 
-  int t_s;
-  cin >> t_s;
-  For(i, 0, t_s) solve();
+  solve();
 
   return 0;
 }
