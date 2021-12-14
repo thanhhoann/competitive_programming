@@ -37,11 +37,11 @@ template <typename... T> void write(T &&...args) {
 
 #define db(x) cout << #x << " = " << x << endl;
 #define For(i, k, n) for (unsigned long i = k; i < n; i++)
+#define For_equal(i, k, n) for (unsigned long i = k; i <= n; i++)
 #define For_map(map) for (const auto &e : map)
 
 void solve() {
-  int n;
-  cin >> n;
+     
 }
 
 int main() {
@@ -49,9 +49,11 @@ int main() {
   cin.tie(0);
   cout.tie(0);
 
-  int t_s;
-  cin >> t_s;
-  For(i, 0, t_s) solve();
+  int test_cases;
+  read(test_cases);
+  while (test_cases-- > 0) {
+    solve();
+  }
 
   return 0;
 }
