@@ -30,8 +30,8 @@ program
     const _commit = execSync(`git commit -m ${options.message}`, {
       encoding: "utf-8",
     });
-    // const _push = execSync("git push origin main");
-    console.log(_commit);
+    const _push = execSync(`git push origin main`);
+    console.log(_push);
   });
 
 program
