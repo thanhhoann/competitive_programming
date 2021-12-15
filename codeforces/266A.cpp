@@ -45,13 +45,11 @@ void solve() {
   string s;
   read(n, s);
 
-  int min = 0;
-  For(i, 1, s.length()) {
-       if (s[i-1] )
-    if (s[i - 1] != s[i + 1]) {
-      cout << min;
-    }
-  }
+  int count = 0;
+
+  For(i, 0, s.length()) if (s[i] == s[i + 1]) count++;
+
+  write(count);
 }
 
 int main() {
