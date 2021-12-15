@@ -1,7 +1,12 @@
+/* 
+* Answer: 1233  
+*/
+
 #include <algorithm>
 #include <array>
 #include <chrono>
 #include <deque>
+#include <fstream>
 #include <functional>
 #include <iostream>
 #include <map>
@@ -9,7 +14,6 @@
 #include <numeric>
 #include <queue>
 #include <set>
-#include <sstream>
 #include <stack>
 #include <string>
 #include <unordered_map>
@@ -36,17 +40,22 @@ template <typename... T> void write(T &&...args) {
 #define F first
 #define S second
 
-#define db_out(x) cout << #x << " = " << x << endl;
-#define F(n) for (unsigned long i = 0; i < n; i++)
-#define F_k(k, n) for (i = k; i < n; i++)
-#define F_map(map) for (const auto &e : map)
+#define db(x) cout << #x << " = " << x << endl;
+#define For(i, k, n) for (unsigned long i = k; i < n; i++)
+#define For_equal(i, k, n) for (unsigned long i = k; i <= n; i++)
+#define For_map(map) for (const auto &e : map)
 
 void solve() {
-  vector<int> v;
-  int n;
-  while (cin >> n)
-    v.push_back(n);
-  F(v.size()) cout << v[i];
+  int num, count = 0;
+  int current = 0;
+
+  while (cin >> num) {
+    if (num > current) {
+      count++;
+    }
+    current = num;
+  }
+  cout << count - 1;
 }
 
 int main() {
