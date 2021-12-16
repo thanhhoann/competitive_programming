@@ -44,20 +44,6 @@ void solve() {
   int n, m;
   read(n, m);
 
-  /* for (int i = n + 1; i <= m; i++) { */
-  /* bool isPrime = true; */
-  /* for (int j = 2; j * j <= i; j++) { */
-  /* if (i % j == 0) { */
-  /* isPrime = false; */
-  /* break; */
-  /* } */
-  /* } */
-  /* if (isPrime) { */
-  /* db(i); */
-  /* cout << "NO"; */
-  /* return; */
-  /* } */
-
   int min = m;
   int current = 0;
   bool is_m_prime = true;
