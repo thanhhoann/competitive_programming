@@ -1,3 +1,5 @@
+/* Answer: 1698735 */
+
 #include <algorithm>
 #include <array>
 #include <chrono>
