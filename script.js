@@ -7,7 +7,7 @@ const execSync = require("child_process").execSync;
 const date = new Date();
 
 program
-  .command("cf")
+  .command("codeforces")
   .option("-m, --message <message_via_commit>", "commit message")
   .action((options) => {
     const _add = execSync(`git add .`, { encoding: "utf-8" });
