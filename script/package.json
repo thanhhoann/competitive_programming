@@ -1,16 +1,37 @@
 {
-  "name": "script",
+  "name": "@thanhhoann/fuck",
   "version": "1.0.0",
-  "description": "",
-  "type": "module",
-  "main": "main.js",
+  "description": "A CLI to ...",
+  "main": "src/cli.js",
+  "bin": "bin/fuck",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "fuck"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "boxen": "^6.2.1"
-  }
+    "arg": "^4.1.0",
+    "chalk": "^2.4.2",
+    "covgen": "^3.1.0",
+    "esm": "^3.2.18",
+    "execa": "^1.0.0",
+    "gitignore": "^0.6.0",
+    "inquirer": "^6.2.2",
+    "listr": "^0.14.3",
+    "ncp": "^2.0.0",
+    "pkg-install": "^0.2.0",
+    "spdx-license-list": "^5.0.0"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "templates/"
+  ]
 }
