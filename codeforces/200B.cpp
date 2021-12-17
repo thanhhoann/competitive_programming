@@ -39,7 +39,6 @@ template <typename... T> void write(T &&...args) {
 #define db(x) cout << #x << " = " << x << endl;
 #define For(i, k, n) for (unsigned long i = k; i < n; i++)
 #define For_equal(i, k, n) for (unsigned long i = k; i <= n; i++)
-#define For_map(map) for (const auto &e : map)
 
 void solve() {
   int n;
