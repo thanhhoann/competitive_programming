@@ -5,7 +5,9 @@ const program = new commander.Command();
 
 import exec from "child_process";
 const execSync = exec.execSync;
+
 import boxen from "boxen";
+import chalk from "chalk";
 
 const date = new Date();
 
@@ -26,7 +28,7 @@ program
     const clear = execSync("clear");
     if (_push)
       console.log(
-        boxen(`Successfully pushed ${options.message}.cpp !`, {
+        boxen(chalk.blue(`Successfully pushed ${options.message}.cpp !`), {
           title: "Git",
           titleAlignment: "center",
         })
