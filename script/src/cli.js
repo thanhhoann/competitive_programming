@@ -12,7 +12,8 @@ import chalk from "chalk";
 const date = new Date();
 
 program
-  .command("codeforces")
+  .command("cf")
+  .description("CodeForces")
   .option("-m, --message <message_via_commit>", "commit message")
   .action((options) => {
     const _add = execSync(`git add .`, { encoding: "utf-8" });
@@ -35,7 +36,8 @@ program
   });
 
 program
-  .command("advent_of_code")
+  .command("aoc")
+  .description("Advent of Code")
   .option("-m, --message <message_via_commit>", "commit message")
   .action((options) => {
     const _add = execSync(`git add .`, { encoding: "utf-8" });
@@ -58,7 +60,8 @@ program
   });
 
 program
-  .command("leetcode")
+  .command("lc")
+  .description("LeetCode")
   .option("-m, --message <message_via_commit>", "commit message")
   .action((options) => {
     const _add = execSync(`git add .`, { encoding: "utf-8" });
