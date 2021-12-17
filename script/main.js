@@ -24,12 +24,11 @@ program
         encoding: "utf-8",
       }
     );
-    const _push = execSync(`git push origin main`);
-    const clear = execSync("clear");
+    const _push = execSync(`git push origin main && clear`);
     if (_push)
       console.log(
         boxen(chalk.yellow(`Successfully pushed ${options.message}.cpp !`), {
-          title: "Git",
+          title: "codeforces",
           titleAlignment: "center",
         })
       );
