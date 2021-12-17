@@ -28,7 +28,7 @@ program
     const clear = execSync("clear");
     if (_push)
       console.log(
-        boxen(chalk.blue(`Successfully pushed ${options.message}.cpp !`), {
+        boxen(chalk.yellow(`Successfully pushed ${options.message}.cpp !`), {
           title: "Git",
           titleAlignment: "center",
         })
