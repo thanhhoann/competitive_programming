@@ -42,6 +42,7 @@ template <typename... T> void write(T &&...args) {
 
 void solve() {
   string s;
+
   cin >> s;
 
   if (islower(s[0]))
