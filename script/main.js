@@ -23,6 +23,7 @@ program
       }
     );
     const _push = execSync(`git push origin main`);
+    const clear = execSync("clear");
     if (_push)
       console.log(
         boxen(`Successfully pushed ${options.message}.cpp !`, {
