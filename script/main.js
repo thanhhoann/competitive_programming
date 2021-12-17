@@ -48,7 +48,13 @@ program
       }
     );
     const _push = execSync(`git push origin main`);
-    if (_push) console.log(boxen("unicorn", { padding: 1 }));
+    if (_push)
+      console.log(
+        boxen(chalk.yellow(`Successfully pushed ${options.message}.cpp !`), {
+          title: "advent of code",
+          titleAlignment: "center",
+        })
+      );
   });
 
 program
@@ -66,7 +72,13 @@ program
       }
     );
     const _push = execSync(`git push origin main`);
-    if (_push) console.log(`PUSHED ${options.message} !`);
+    if (_push)
+      console.log(
+        boxen(chalk.yellow(`Successfully pushed ${options.message}.js !`), {
+          title: "leetcode",
+          titleAlignment: "center",
+        })
+      );
   });
 
 program.parse(process.argv);
