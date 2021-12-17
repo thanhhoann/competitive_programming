@@ -23,7 +23,7 @@ program
       }
     );
     const _push = execSync(`git push origin main`);
-    if (_push) console.log(boxen("unicorn", { padding: 1 }));
+    if (_push) console.log(boxen(`Successfully pushed ${options.message}.cpp !`, { padding: 1 }));
   });
 
 program
