@@ -84,4 +84,30 @@ program
       );
   });
 
+program
+  .command("ac")
+  .description("AtCoder")
+  .option("-c, --contest <contest>", "contest")
+  .option("-p, --problem <problem>", "problem")
+  .action((options) => {
+    const _add = execSync(`git add .`, { encoding: "utf-8" });
+
+    const _commit = execSync(
+      `git commit -m "add atcoder/contest_${options.contest}/${
+        options.problem
+      }.cpp at ${date.toLocaleString()}."`,
+      {
+        encoding: "utf-8",
+      }
+    );
+    const _push = execSync(`git push origin main`);
+    if (_push)
+      console.log(
+        boxen(chalk.yellow(`Successfully pushed ${options.message}.cpp !`), {
+          title: "AtCoder",
+          titleAlignment: "center",
+        })
+      );
+  });
+
 program.parse(process.argv);
