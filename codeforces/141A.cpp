@@ -43,28 +43,33 @@ template <typename... T> void write(T &&...args) {
 void solve() {
   string s[3];
 
-  vector<char> v;
+  vector<char> a, b;
 
-  For(i, 0, 3) read(s[i]);
-
-  For(i, 0, 2) for (auto c : s[i]) v.pb(c);
-
-  For(i, 0, s[2].length()) {
-    for (int j = 0; j < s[2].length(); j++) {
-      if (v[i] == s[2][j]) {
-        s[2][j] = ' ';
-        db(s[2]);
-      }
-    }
+  For(i, 0, 2) {
+    read(s[i]);
+    for (auto c : s[i])
+      a.pb(c);
   }
 
-  int count = 0;
-  For(i, 0, s[2].length()) if (s[2][i] != ' ') count++;
+  read(s[2]);
+  for (auto c : s[2])
+    b.pb(c);
 
-  if (count == 0)
-    cout << "YES";
-  else
+  sort(a.begin(), a.end());
+  sort(b.begin(), b.end());
+
+  if (a.size() != b.size()) {
     cout << "NO";
+    return;
+  } else {
+    For(i, 0, a.size()) {
+      if (a[i] != b[i]) {
+        cout << "NO";
+        return;
+      }
+    }
+    cout << "YES";
+  }
 }
 
 int main() {
