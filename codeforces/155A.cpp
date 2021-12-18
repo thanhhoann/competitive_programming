@@ -45,17 +45,26 @@ void solve() {
   read(n);
 
   int A[n];
-  int min = 0, max = 0;
 
-  For(i, 0, n) { read(A[i]); }
+  For_equal(i, 1, n) { read(A[i]); }
 
-  For(i, 0, n) {
-    if (i == 0 || i == 1) {
+  int max = A[1], min = A[1];
+  int count = 0;
+
+  For_equal(i, 1, n) {
+    if (i == 1)
       continue;
-    } else {
-      min = min(A[i], A[i + 1]);
+    else if (A[i] > max) {
+      max = A[i];
+      count++;
+      /* db(max); */
+    } else if (A[i] < min) {
+      min = A[i];
+      count++;
+      /* db(min); */
     }
   }
+  cout << count;
 }
 
 int main() {
