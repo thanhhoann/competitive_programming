@@ -14,7 +14,7 @@ const date = new Date();
 program
   .command("cf")
   .description("CodeForces")
-  .option("-m, --message <message_via_commit>", "commit message")
+  .option("-p, --problem <problem>", "problem")
   .action((options) => {
     const _add = execSync(`git add .`, { encoding: "utf-8" });
     const _commit = execSync(
@@ -25,10 +25,10 @@ program
         encoding: "utf-8",
       }
     );
-    const _push = execSync(`git push origin main && clear`);
+    const _push = execSync(`git push origin main`);
     if (_push)
       console.log(
-        boxen(chalk.yellow(`Successfully pushed ${options.message}.cpp !`), {
+        boxen(chalk.yellow(`${_push}`), {
           title: "codeforces",
           titleAlignment: "center",
         })
@@ -38,11 +38,11 @@ program
 program
   .command("aoc")
   .description("Advent of Code")
-  .option("-m, --message <message_via_commit>", "commit message")
+  .option("-p, --problem <problem>", "problem")
   .action((options) => {
     const _add = execSync(`git add .`, { encoding: "utf-8" });
     const _commit = execSync(
-      `git commit -m "add advent_of_code/${
+      `git commit -p "add advent_of_code/${
         options.message
       }.cpp at ${date.toLocaleString()}."`,
       {
@@ -62,12 +62,12 @@ program
 program
   .command("lc")
   .description("LeetCode")
-  .option("-m, --message <message_via_commit>", "commit message")
+  .option("-p, --problem <problem>", "problem")
   .action((options) => {
     const _add = execSync(`git add .`, { encoding: "utf-8" });
 
     const _commit = execSync(
-      `git commit -m "add leetcode/${
+      `git commit -p "add leetcode/${
         options.message
       }.cpp at ${date.toLocaleString()}."`,
       {
@@ -93,7 +93,7 @@ program
     const _add = execSync(`git add .`, { encoding: "utf-8" });
 
     const _commit = execSync(
-      `git commit -m "add atcoder/contest_${options.contest}/${
+      `git commit -p "add atcoder/contest_${options.contest}/${
         options.problem
       }.cpp at ${date.toLocaleString()}."`,
       {
@@ -103,10 +103,15 @@ program
     const _push = execSync(`git push origin main`);
     if (_push)
       console.log(
-        boxen(chalk.yellow(`Successfully pushed ${options.message}.cpp !`), {
-          title: "AtCoder",
-          titleAlignment: "center",
-        })
+        boxen(
+          chalk.yellow(
+            `Successfully pushed contest_${options.contest}/${options.problem}.cpp !`
+          ),
+          {
+            title: "AtCoder",
+            titleAlignment: "center",
+          }
+        )
       );
   });
 
