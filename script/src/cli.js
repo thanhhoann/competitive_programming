@@ -38,7 +38,7 @@ program
   .description("CodeForces")
   .option("-p, --problem <problem>", "problem")
   .action((options) => {
-    const _add = execSync(`git add `, { encoding: "utf-8" });
+    const _add = execSync(`git add .`, { encoding: "utf-8" });
     const _commit = execSync(
       `git commit -m "add codeforces/${
         options.problem
