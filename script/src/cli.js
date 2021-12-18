@@ -41,7 +41,7 @@ program
     const _add = execSync(`git add .`, { encoding: "utf-8" });
     const _commit = execSync(
       `git commit -m "add codeforces/${
-        options.message
+        options.problem
       }.cpp at ${date.toLocaleString()}."`,
       {
         encoding: "utf-8",
@@ -50,7 +50,7 @@ program
     const _push = execSync(`git push origin main`);
     if (_push)
       console.log(
-        boxen(chalk.yellow(`Successfully pushed ${options.message}.cpp !`), {
+        boxen(chalk.yellow(`Successfully pushed ${options.problem}.cpp !`), {
           title: "codeforces",
           titleAlignment: "center",
         })
