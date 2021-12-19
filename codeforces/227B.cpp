@@ -52,25 +52,38 @@ void solve() {
   int count_ascend = 0;
   int count_descend = 0;
 
-
-  // linear search too slow !
-
-  for (int i = 1; i <= m; i++) {
-    for (int j = 1; j <= n; j++) {
-      count_ascend++;
-      if (M[i] == N[j])
-        break;
-    }
-
-    for (int j = n; j >= 1; j--) {
-      count_descend++;
-      if (M[i] == N[j]) {
-        break;
+  if (m < n) {
+    for (int i = 1; i <= m; i++) {
+      for (int j = 1; j <= n; j++) {
+        count_ascend++;
+        if (M[i] == N[j])
+          break;
       }
     }
-  }
 
-  cout << count_ascend << " " << count_descend;
+    if (count_ascend < n) {
+      count_descend = count_ascend + 1;
+    } else {
+      count_descend = count_ascend - 1;
+    }
+    cout << count_ascend << " " << count_descend;
+  } else if (m == n) {
+
+    for (int i = 1; i <= m; i++) {
+      for (int j = 1; j <= n; j++) {
+        count_ascend++;
+        if (M[i] == N[j])
+          break;
+      }
+
+      for (int j = n; j >= 1; j--) {
+        count_descend++;
+        if (M[i] == N[j])
+          break;
+      }
+    }
+    cout << count_ascend << " " << count_descend;
+  }
 }
 
 int main() {
