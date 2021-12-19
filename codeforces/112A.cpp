@@ -41,16 +41,20 @@ template <typename... T> void write(T &&...args) {
 #define For_map(map) for (const auto &e : map)
 
 void solve() {
-  string s;
-  read(s);
+  string a, b;
+  read(a, b);
 
-  for (auto c : s) {
-    if (c == 'H' || c == 'Q' || c == '9') {
-      cout << "YES";
-      return;
-    }
-  }
-  cout << "NO";
+  transform(a.begin(), a.end(), a.begin(),
+            [](unsigned char c) { return tolower(c); });
+  transform(b.begin(), b.end(), b.begin(),
+            [](unsigned char c) { return tolower(c); });
+
+  if (string((a)) < string(b))
+    cout << -1;
+  else if (string(a) > string(b))
+    cout << 1;
+  else
+    cout << 0;
 }
 
 int main() {
