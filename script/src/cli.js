@@ -87,10 +87,9 @@ program
   .option("-p, --problem <problem>", "problem")
   .action((options) => {
     const _add = execSync(`git add .`, { encoding: "utf-8" });
-
     const _commit = execSync(
-      `git commit -p "add leetcode/${
-        options.message
+      `git commit -m "add leetcode/${
+        options.problem
       }.cpp at ${date.toLocaleString()}."`,
       {
         encoding: "utf-8",
@@ -99,8 +98,8 @@ program
     const _push = execSync(`git push origin main`);
     if (_push)
       console.log(
-        boxen(chalk.yellow(`Successfully pushed ${options.message}.js !`), {
-          title: "leetcode",
+        boxen(chalk.yellow(`Successfully pushed ${options.problem}.js !`), {
+          title: "LeetCode",
           titleAlignment: "center",
         })
       );
