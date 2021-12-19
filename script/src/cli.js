@@ -58,30 +58,6 @@ program
   });
 
 program
-  .command("aoc")
-  .description("Advent of Code")
-  .option("-p, --problem <problem>", "problem")
-  .action((options) => {
-    const _add = execSync(`git add .`, { encoding: "utf-8" });
-    const _commit = execSync(
-      `git commit -m "add advent_of_code/${
-        options.problem
-      }.cpp at ${date.toLocaleString()}."`,
-      {
-        encoding: "utf-8",
-      }
-    );
-    const _push = execSync(`git push origin main`);
-    if (_push)
-      console.log(
-        boxen(chalk.yellow(`Successfully pushed ${options.problem}.cpp !`), {
-          title: "advent of code",
-          titleAlignment: "center",
-        })
-      );
-  });
-
-program
   .command("lc")
   .description("LeetCode")
   .option("-p, --problem <problem>", "problem")
@@ -108,13 +84,11 @@ program
 program
   .command("ac")
   .description("AtCoder")
-  .option("-c, --contest <contest>", "contest")
   .option("-p, --problem <problem>", "problem")
   .action((options) => {
     const _add = execSync(`git add .`, { encoding: "utf-8" });
-
     const _commit = execSync(
-      `git commit -p "add atcoder/contest_${options.contest}/${
+      `git commit -m "add atcoder/${
         options.problem
       }.cpp at ${date.toLocaleString()}."`,
       {
@@ -124,15 +98,10 @@ program
     const _push = execSync(`git push origin main`);
     if (_push)
       console.log(
-        boxen(
-          chalk.yellow(
-            `Successfully pushed contest_${options.contest}/${options.problem}.cpp !`
-          ),
-          {
-            title: "AtCoder",
-            titleAlignment: "center",
-          }
-        )
+        boxen(chalk.yellow(`Successfully pushed ${options.problem}.cpp !`), {
+          title: "AtCoder",
+          titleAlignment: "center",
+        })
       );
   });
 
