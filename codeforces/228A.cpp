@@ -28,27 +28,20 @@ template <typename... T> void write(T &&...args) {
   ((cout << args << " "), ...);
 }
 
-#define ul unsigned long
 #define ll long long
-#define pb push_back
-#define PI (3.14159265)
-#define F first
-#define S second
 
 #define db(x) cout << #x << " = " << x << endl;
-#define For(i, k, n) for (unsigned long i = k; i < n; i++)
-#define For_equal(i, k, n) for (unsigned long i = k; i <= n; i++)
-#define For_map(map) for (const auto &e : map)
 
 void solve() {
   int A[4];
-  For(i, 0, 4) read(A[i]);
+  for (int i = 0; i < 4; i++)
+    read(A[i]);
 
   unordered_map<int, int> map;
 
   int count = 0;
 
-  For(i, 0, 4) {
+  for (int i = 0; i < 4; i++) {
     for (int j = i + 1; j <= 4; j++) {
       if (A[i] == A[j]) {
         count++;
