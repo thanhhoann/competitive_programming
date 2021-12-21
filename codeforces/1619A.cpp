@@ -30,33 +30,10 @@ void solve() {
   string s;
   read(s);
 
-  if (s.length() == 1) {
-    cout << "NO\n";
-    return;
-  }
+  int sz = s.size();
 
-  vector<char> S;
-  for (auto c : s) {
-    S.push_back(c);
-  }
-
-  size_t const half_size = S.size() / 2;
-  vector<char> half1(S.begin(), S.begin() + half_size);
-  vector<char> half2(S.begin() + half_size, S.end());
-
-  if (half1.size() != half2.size()) {
-    cout << "NO\n";
-    return;
-  }
-
-  for (int i = 0; i < s.length() / 2; i++) {
-    if (half1[i] != half2[i]) {
-      cout << "NO\n";
-      return;
-    }
-  }
-
-  cout << "YES\n";
+  cout << ((sz % 2 == 0 && s.substr(0, sz / 2) == s.substr(sz / 2)) ? "YES\n"
+                                                                    : "NO\n");
 }
 
 int main() {
