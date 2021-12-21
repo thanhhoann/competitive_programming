@@ -27,18 +27,18 @@ template <typename... T> void write(T &&...args) {
 #define db(x) cout << #x << " = " << x << endl;
 
 void solve() {
-  int a;
-  double b;
-  read(a, b);
+  int l, b;
+  read(l, b);
 
-  int result = 0;
+  int l_r = l, b_r = b, count = 0;
 
-  if (a % 5 == 0 && a < b) {
-    result = b - a;
-    printf("%.2f\n", result - 0.5);
-  } else {
-    printf("%.2f\n", b);
+  while (l_r <= b_r) {
+    l_r *= 3;
+    b_r *= 2;
+    count++;
   }
+
+  cout << count;
 }
 
 int main() {
