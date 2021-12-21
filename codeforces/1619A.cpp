@@ -67,7 +67,6 @@ int main() {
   int ts;
   read(ts);
   while (ts--) {
-    /* cout << endl << "TEST " << ts << endl; */
     solve();
   }
 
