@@ -32,8 +32,9 @@ void solve() {
 
   int sz = s.size();
 
-  cout << ((sz % 2 == 0 && s.substr(0, sz / 2) == s.substr(sz / 2)) ? "YES\n"
-                                                                    : "NO\n");
+  cout << ((sz % 2 == 0 && s.substr(0, sz / 2) == s.substr(sz / 2)) ? "YES"
+                                                                    : "NO")
+       << "\n";
 }
 
 int main() {
