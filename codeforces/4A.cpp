@@ -12,24 +12,27 @@ using namespace std;
 
 void solve() {
   int n;
-  string s;
-  cin >> n >> s;
+  cin >> n;
 
-  int a = 0, b = 0;
+  int temp = 2;
+  bool flag = false;
 
-  for (auto const c : s) {
-    if (c == 'A')
-      a++;
-    else
-      b++;
+  if (n <= temp) {
+    flag = true;
   }
 
-  if (a > b)
-    cout << "Anton";
-  else if (a < b)
-    cout << "Danik";
-  else
-    cout << "Friendship";
+  while (temp < n) {
+    temp += 2;
+    if ((n - temp) % 2 != 0) {
+      flag = true;
+    }
+  }
+
+  if (flag == true) {
+    cout << "NO";
+  } else {
+    cout << "YES";
+  }
 }
 
 int main() {
