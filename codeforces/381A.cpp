@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <functional>
 #include <iostream>
 #include <math.h>
 #include <string>
@@ -14,44 +13,42 @@ using namespace std;
 void solve() {
   int n;
   cin >> n;
-  int N[1001];
-  vector<int> Sereja, Dima;
 
-  for (int i = 1; i <= n; i++) {
-    cin >> N[i];
+  vector<int> N;
+  int num;
+
+  for (int i = 0; i < n; i++) {
+    cin >> num;
+    N.push_back(num);
   }
 
-  int l = 1, r = n;
-  int turn = 1;
+  int a = 0, b = 0;
+  int left = 0, right = n - 1;
+  int count = 0;
 
-  while (l <= r) {
-    if (N[l] >= N[r]) {
-      if (turn % 2 != 0) {
-        Sereja.push_back(N[l]);
-      } else {
-        Dima.push_back(N[l]);
-      }
-      l++;
-    } else if (N[l] < N[r]) {
-      if (turn % 2 != 0) {
-        Sereja.push_back(N[r]);
-      } else {
-        Dima.push_back(N[r]);
-      }
-      r--;
+  while (left < right) {
+    if (N[left] < N[right]) {
+      if (count % 2 == 0)
+        a += N[right];
+      else
+        b += N[right];
+      right--;
+    } else if (N[left] > N[right]) {
+      if (count % 2 == 0)
+        a += N[left];
+      else
+        b += N[left];
+      left++;
     }
-    turn++;
+    count++;
   }
 
-  int s_S = 0, s_D = 0;
-  for (auto e : Sereja) {
-    s_S += e;
-  }
-  for (auto e : Dima) {
-    s_D += e;
-  }
+  if (count % 2 == 0)
+    a += N[left];
+  else
+    b += N[left];
 
-  cout << s_S << ' ' << s_D;
+  cout << a << ' ' << b;
 }
 
 int main() {

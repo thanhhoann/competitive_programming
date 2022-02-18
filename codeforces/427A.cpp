@@ -13,21 +13,22 @@ using namespace std;
 void solve() {
   int n;
   cin >> n;
-  int N[n];
 
-  int officers = 0, crimes = 0;
+  int num;
+  int polices = 0, crimes = 0;
 
-  for (int i = 1; i <= n; i++) {
-    cin >> N[i];
-
-    if (N[i] == -1) {
-      if (!officers)
+  for (int i = 0; i < n; i++) {
+    cin >> num;
+    if (num < 0) {
+      if (polices <= 0) {
         crimes++;
-      else
-        officers--;
-    } else
-      officers += N[i];
+      } else
+        polices--;
+    } else {
+      polices += num;
+    }
   }
+
   cout << crimes;
 }
 

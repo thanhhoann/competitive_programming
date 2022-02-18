@@ -1,68 +1,34 @@
 #include <algorithm>
-#include <array>
-#include <chrono>
-#include <deque>
-#include <functional>
 #include <iostream>
-#include <map>
 #include <math.h>
-#include <numeric>
-#include <queue>
-#include <set>
-#include <stack>
 #include <string>
-#include <unordered_map>
-#include <unordered_set>
 #include <vector>
 
 using namespace std;
 
-template <typename A, typename B>
-ostream &operator<<(ostream &os, const pair<A, B> &p) {
-  return os << '(' << p.first << ", " << p.second << ')';
-}
-
-template <typename... T> auto sum(T... args) { return (args + ...); }
-template <typename... T> void read(T &...args) { ((cin >> args), ...); }
-template <typename... T> void write(T &&...args) {
-  ((cout << args << " "), ...);
-}
-
-#define ul unsigned long
 #define ll long long
-#define pb push_back
-#define PI (3.14159265)
-#define F first
-#define S second
 
 #define db(x) cout << #x << " = " << x << endl;
-#define For(i, k, n) for (unsigned long i = k; i < n; i++)
-#define For_equal(i, k, n) for (unsigned long i = k; i <= n; i++)
-#define For_map(map) for (const auto &e : map)
+
+string tolower_str(string s) {
+  string res;
+  for (auto c : s) {
+    res += tolower(c);
+  }
+  return res;
+}
 
 void solve() {
   string a, b;
-  read(a, b);
+  cin >> a >> b;
 
-  transform(a.begin(), a.end(), a.begin(),
-            [](unsigned char c) { return tolower(c); });
-  transform(b.begin(), b.end(), b.begin(),
-            [](unsigned char c) { return tolower(c); });
+  a = tolower_str(a);
+  b = tolower_str(b);
 
-  if (string((a)) < string(b))
-    cout << -1;
-  else if (string(a) > string(b))
-    cout << 1;
-  else
-    cout << 0;
+  a < b ? (cout << -1) : ((b < a) ? (cout << 1) : (cout << 0));
 }
 
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  cout.tie(0);
-
   solve();
-
   return 0;
 }
