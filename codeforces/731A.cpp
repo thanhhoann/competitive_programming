@@ -10,23 +10,28 @@ using namespace std;
 
 #define db(x) cout << #x << " = " << x << endl;
 
+int counter_clockwise(char a, char b) { return 26 - abs(a - b); }
+int clockwise(char a, char b) { return abs(a - b); }
+
 void solve() {
   string s;
   cin >> s;
 
-  int ans = 0;
-  int d_0 = 0, d_1 = 0;
-  char start = 'a';
+  int sum = clockwise('a', s[0]) > counter_clockwise('a', s[0])
+                ? counter_clockwise('a', s[0])
+                : clockwise('a', s[0]);
 
-  for (auto c : s) {
-    d_0 = abs(start - c);      // clockwise
-    d_1 = 26 - abs(start - c); // anti-clockwise
+  for (int i = 0; i < s.length() - 1; i++) {
+    int a = clockwise(s[i], s[i + 1]);
+    int b = counter_clockwise(s[i], s[i + 1]);
 
-    ans += min(d_0, d_1);
-
-    start = c;
+    if (a > b)
+      sum += b;
+    else
+      sum += a;
   }
-  cout << ans;
+
+  cout << sum;
 }
 
 int main() {

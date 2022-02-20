@@ -11,21 +11,18 @@ using namespace std;
 #define db(x) cout << #x << " = " << x << endl;
 
 void solve() {
-  int a, b;
-  cin >> a >> b;
+  int k, r;
+  cin >> k >> r;
 
-  int count = 0;
+  for (int i = 1; i <= 10; i++) {
+    int a = k * i;
+    int b = (a - r);
 
-  while (a < b) {
-    a *= 3;
-    b *= 2;
-    count++;
+    if (a % 10 == 0 || b % 10 == 0) {
+      cout << i;
+      return;
+    }
   }
-
-  if (a == b)
-    cout << count + 1;
-  else
-    cout << count;
 }
 
 int main() {

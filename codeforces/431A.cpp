@@ -11,20 +11,20 @@ using namespace std;
 #define db(x) cout << #x << " = " << x << endl;
 
 void solve() {
-  int a, b, c, d, N[5];
-  cin >> a >> b >> c >> d;
+  int A[10000];
+  for (int i = 1; i <= 4; i++) {
+    cin >> A[i];
+  }
+
   string s;
   cin >> s;
 
-  N[1] = a;
-  N[2] = b;
-  N[3] = c;
-  N[4] = d;
-
   int sum = 0;
 
-  for (auto &n : s)
-    sum += N[n - '0'];
+  for (auto const c : s) {
+    int num = c - '0';
+    sum += A[num];
+  }
 
   cout << sum;
 }
