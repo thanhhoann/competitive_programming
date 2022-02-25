@@ -11,26 +11,24 @@ using namespace std;
 #define db(x) cout << #x << " = " << x << endl;
 
 void solve() {
-  int n;
-  cin >> n;
-  string s;
-  int sum = 0;
-  while (n--) {
+  int n, k;
+  cin >> n >> k;
+
+  int ans = 0;
+  for (int i = 0; i < n; i++) {
+    string s;
     cin >> s;
 
-    bool isPlus = false;
-
-    for (auto const c : s) {
-      if (c == '+') {
-        isPlus = true;
-        break;
-      }
+    int count = 0;
+    for (int j = 0; j <= k; j++) {
+      if (s.find(to_string(j)) != -1)
+        count++;
     }
-
-    isPlus == true ? sum++ : sum--;
+    if (count == k + 1) {
+      ans++;
+    }
   }
-
-  cout << sum;
+  cout << ans;
 }
 
 int main() {

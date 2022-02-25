@@ -11,15 +11,25 @@ using namespace std;
 #define db(x) cout << #x << " = " << x << endl;
 
 void solve() {
-  string s, t;
-  cin >> s >> t;
+  int n, k;
+  cin >> n >> k;
 
+  vector<int> N;
   int count = 0;
-  for (int i = 0; i < t.length(); i++) {
-    if (s[count] == t[i])
+  int num;
+  for (int i = 0; i < n; i++) {
+    cin >> num;
+    N.push_back(num);
+  }
+
+  int max = N[k - 1];
+
+  for (int i = 0; i < n; i++) {
+    if (N[i] >= max && N[i] > 0)
       count++;
   }
-  cout << count + 1;
+
+  cout << count;
 }
 
 int main() {

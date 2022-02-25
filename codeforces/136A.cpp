@@ -12,25 +12,16 @@ using namespace std;
 
 void solve() {
   int n;
+  int N[1000000];
+  int A[1000000];
   cin >> n;
-  string s;
-  int sum = 0;
-  while (n--) {
-    cin >> s;
-
-    bool isPlus = false;
-
-    for (auto const c : s) {
-      if (c == '+') {
-        isPlus = true;
-        break;
-      }
-    }
-
-    isPlus == true ? sum++ : sum--;
+  for (int i = 1; i <= n; i++) {
+    cin >> N[i];
+    A[N[i]] = i;
   }
 
-  cout << sum;
+  for (int i = 1; i <= n; i++)
+    cout << A[i] << ' ';
 }
 
 int main() {
