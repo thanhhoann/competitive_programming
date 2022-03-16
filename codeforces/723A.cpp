@@ -9,26 +9,16 @@ using namespace std;
 
 #define ll long long
 #define db(x) cout << #x << " = " << x << endl;
-template <class T> void _db(vector<T> nums) {
-  cerr << "[ ";
-  for (T num : nums)
-    cerr << num << ' ';
-  cerr << " ]";
-}
 
 void solve() {
-  int A[1000000];
-  for (int i = 0; i < 4; i++)
-    cin >> A[i];
-  string s;
-  cin >> s;
-
-  int sum = 0;
-  for (auto c : s) {
-    int num = c - '0';
-    sum += A[num - 1];
+  int num;
+  vector<int> nums;
+  for (int i = 0; i < 3; i++) {
+    cin >> num;
+    nums.push_back(num);
   }
-  cout << sum;
+  sort(nums.begin(), nums.end());
+  cout << (nums[2] - nums[0]);
 }
 
 int main() {

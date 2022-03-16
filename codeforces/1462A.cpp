@@ -17,24 +17,39 @@ template <class T> void _db(vector<T> nums) {
 }
 
 void solve() {
-  int A[1000000];
-  for (int i = 0; i < 4; i++)
-    cin >> A[i];
-  string s;
-  cin >> s;
+  int n;
+  cin >> n;
+  vector<int> N(n);
+  for (auto &num : N)
+    cin >> num;
 
-  int sum = 0;
-  for (auto c : s) {
-    int num = c - '0';
-    sum += A[num - 1];
+  int l = 0, r = n - 1;
+  vector<int> res;
+  while (l < r) {
+    res.push_back(N[l]);
+    res.push_back(N[r]);
+    l++;
+    r--;
   }
-  cout << sum;
+
+  for (auto num : res)
+    cout << num << ' ';
+
+  if (n % 2 != 0 || n == 1)
+    cout << N[l];
+
+  cout << '\n';
 }
 
 int main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
   cout.tie(0);
-  solve();
+
+  int test_cases;
+  cin >> test_cases;
+  while (test_cases--) {
+    solve();
+  }
   return 0;
 }

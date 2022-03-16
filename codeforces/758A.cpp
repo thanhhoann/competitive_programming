@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <functional>
 #include <iostream>
 #include <map>
 #include <set>
@@ -17,16 +18,22 @@ template <class T> void _db(vector<T> nums) {
 }
 
 void solve() {
-  int A[1000000];
-  for (int i = 0; i < 4; i++)
-    cin >> A[i];
-  string s;
-  cin >> s;
+  int n;
+  cin >> n;
+  int num;
+  vector<int> temp;
+
+  for (int i = 0; i < n; i++) {
+    cin >> num;
+    temp.push_back(num);
+  }
+
+  sort(temp.begin(), temp.end(), greater<int>());
 
   int sum = 0;
-  for (auto c : s) {
-    int num = c - '0';
-    sum += A[num - 1];
+  for (int i = 1; i < n; i++) {
+    int num = temp[0] - temp[i];
+    sum += num;
   }
   cout << sum;
 }

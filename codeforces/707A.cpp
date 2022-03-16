@@ -17,18 +17,22 @@ template <class T> void _db(vector<T> nums) {
 }
 
 void solve() {
-  int A[1000000];
-  for (int i = 0; i < 4; i++)
-    cin >> A[i];
-  string s;
-  cin >> s;
+  int n, m;
+  cin >> n >> m;
 
-  int sum = 0;
-  for (auto c : s) {
-    int num = c - '0';
-    sum += A[num - 1];
+  char ch;
+  vector<char> A;
+
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      cin >> ch;
+      if (ch == 'C' || ch == 'M' || ch == 'Y') {
+        cout << "#Color";
+        return;
+      }
+    }
   }
-  cout << sum;
+  cout << "#Black&White";
 }
 
 int main() {

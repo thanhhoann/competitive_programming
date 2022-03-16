@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <map>
+#include <queue>
 #include <set>
 #include <string>
 #include <vector>
@@ -16,25 +17,17 @@ template <class T> void _db(vector<T> nums) {
   cerr << " ]";
 }
 
-void solve() {
-  int A[1000000];
-  for (int i = 0; i < 4; i++)
-    cin >> A[i];
-  string s;
-  cin >> s;
-
-  int sum = 0;
-  for (auto c : s) {
-    int num = c - '0';
-    sum += A[num - 1];
+class Solution {
+public:
+  int maxProduct(vector<int> &nums) {
+    sort(nums.begin(), nums.end(), greater<int>());
+    int a = nums[0] - 1;
+    int b = nums[1] - 1;
+    return a * b;
   }
-  cout << sum;
-}
+};
 
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  cout.tie(0);
-  solve();
+  Solution *sol = new Solution;
   return 0;
 }

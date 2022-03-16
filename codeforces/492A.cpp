@@ -17,18 +17,15 @@ template <class T> void _db(vector<T> nums) {
 }
 
 void solve() {
-  int A[1000000];
-  for (int i = 0; i < 4; i++)
-    cin >> A[i];
-  string s;
-  cin >> s;
+  int n;
+  cin >> n;
 
-  int sum = 0;
-  for (auto c : s) {
-    int num = c - '0';
-    sum += A[num - 1];
+  int temp = 0;
+  int i = 1;
+  while (temp > 0) {
+    temp += i;
+    i++;
   }
-  cout << sum;
 }
 
 int main() {
