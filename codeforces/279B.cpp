@@ -1,9 +1,7 @@
 #include <iostream>
 #include <queue>
 #include <vector>
-
 using namespace std;
-
 #define db(x) cout << #x << " = " << x << endl;
 
 int main() {

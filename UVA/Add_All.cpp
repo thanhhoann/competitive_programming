@@ -1,36 +1,28 @@
 #include <functional>
 #include <iostream>
 #include <queue>
-#include <vector>
 
 using namespace std;
-#define db(x) cout << #x << " = " << x << endl;
-
-void solve() {
-  int t;
-  while (cin >> t, t) {
-    priority_queue<int, vector<int>, greater<int>> q;
-    while (t--) {
-      int num;
-      cin >> num;
-      q.push(num);
-    }
-    int temp = 0;
-    int count = 0;
-    int res = 0;
-    while (q.size() > 0) {
-      temp += q.top();
-      q.pop();
-      if (count > 0)
-        res += temp;
-      count++;
-    }
-
-    cout << res << '\n';
-  }
-}
 
 int main() {
-  solve();
+  int n;
+  while (cin >> n, n) {
+    priority_queue<int, vector<int>, greater<int>> q;
+    while (n--) {
+      int x;
+      cin >> x;
+      q.push(x);
+    }
+    int num = 0, ans = 0;
+    while (q.size() - 1 > 0) {
+      num = q.top();
+      q.pop();
+      num = num + q.top();
+      q.pop();
+      ans += num;
+      q.push(num);
+    }
+    cout << ans << '\n';
+  }
   return 0;
 }

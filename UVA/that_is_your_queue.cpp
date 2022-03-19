@@ -1,36 +1,24 @@
-#include <algorithm>
-#include <deque>
 #include <iostream>
-#include <map>
-#include <set>
-#include <string>
-#include <vector>
+#include <queue>
 
 using namespace std;
 
 #define ll long long
-#define db(x) cout << #x << " = " << x << endl;
-template <class T> void _db(vector<T> nums) {
-  cerr << "[ ";
-  for (T num : nums)
-    cerr << num << ' ';
-  cerr << " ]";
-}
-
-void solve() {
-  int p, c;
-  cin >> p >> c;
-  while (c--) {
-    string s;
-    cin >> s;
-    db(s);
-  }
-}
 
 int main() {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  cout.tie(0);
-  solve();
-  return 0;
+  int p, c;
+  while (cin >> p >> c) {
+    queue<int> q;
+    while (c--) {
+      char a, b;
+      int i = 1;
+      cin >> a;
+      if (a == 'E') {
+        cin >> b;
+      } else {
+        q.push(i);
+        i++;
+      }
+    }
+  }
 }
