@@ -1,0 +1,28 @@
+q1.push(1->min(p,c))
+read: p,c
+read: a
+
+if a='E':
+read: x
+if (x != c):
+q2 = q1
+empty(q1)
+     q1.push(x)
+          q1.push(q2)
+else:
+while q1.size() != 0:
+temp=q1.front()
+q1.pop()
+     if temp=x: continue
+     else: q2.push(temp)
+q1.push(x)
+     q1.push(q2)
+
+else:
+temp=q1.front()
+print(temp)
+q1.pop()
+q1.push(temp)
+
+
+

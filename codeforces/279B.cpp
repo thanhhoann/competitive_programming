@@ -1,34 +1,28 @@
 #include <iostream>
-#include <queue>
 #include <vector>
+
 using namespace std;
-#define db(x) cout << #x << " = " << x << endl;
+
+#define ll long long
 
 int main() {
-  int n, t;
+  ll n, t;
   cin >> n >> t;
-  vector<int> N(n);
-  queue<int> q;
-  for (auto &num : N) {
+  vector<ll> N(n);
+  for (auto &num : N)
     cin >> num;
-    q.push(num);
-  }
 
-  int sum = 0;
-  int i = 0;
-  int len = 0;
-
-  while (i < n) {
+  ll sum = 0, j = 0;
+  ll ans = 0;
+  for (int i = 0; i < n; i++) {
     sum += N[i];
-    i++;
-
     if (sum > t) {
-      sum -= q.front();
-      q.pop();
+      sum -= N[j];
+      j++;
     }
+    ans = max(ans, i - j + 1);
   }
-
-  cout << q.size();
+  cout << ans;
 
   return 0;
 }
